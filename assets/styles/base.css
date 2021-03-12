@@ -1,0 +1,46 @@
+@import url(reset.css);
+
+:root {
+  --white: #E5EAEF;
+  --dark: #050505;
+  --gray: #B9C3DC;
+
+  --calculate-text: #999EA5;
+  --total-text: #050505;
+
+  --gray-transparent: #B9C3DC15;
+  --gray-transparent-intern: #B9C3DC60;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+
+  font-family: 'Roboto', sans-serif;
+
+  background: linear-gradient(to right, #000000, #010101);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  min-width: 320px;
+  min-height: 570px;
+  max-height: 720px;
+}
+
+.calculate-text {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--calculate-text);
+  line-height: 38px;
+}
+
+.total {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--total-text);
+}

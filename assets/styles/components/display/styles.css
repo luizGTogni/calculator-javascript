@@ -1,0 +1,19 @@
+.display {
+  height: 120px;
+  width: 100%;
+
+  background-color: var(--white);
+
+  border: 0;
+  border-radius: 25px;
+  box-sizing: border-box;
+
+  box-shadow: inset 0 0 6px 6px var(--gray-transparent-intern);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  padding: 1.5rem;
+}

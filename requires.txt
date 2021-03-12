@@ -1,0 +1,8 @@
+.container
+.phone
+.display
+.calculate-text (gray, regular)
+.total (bold, black)
+.button
+.button-dark
+.button-white
