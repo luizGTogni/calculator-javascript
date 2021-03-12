@@ -25,9 +25,9 @@
 <body>
   <div class="container">
     <div class="phone">
-      <div class="display">
-        <div class="calculate-text">130 x 5</div>
-        <div class="total">650</div>
+      <div id="display" class="display">
+        <div id="calculate" class="calculate-text"></div>
+        <div id="total" class="total">0</div>
       </div>
 
       <div class="keyboard">
@@ -42,25 +42,25 @@
           <i data-feather="divide" class="button__icons"></i>
         </button>
 
-        <button class="button button--white">7</button>
-        <button class="button button--white">8</button>
-        <button class="button button--white">9</button>
+        <button class="button button--white buttons-numbers">7</button>
+        <button class="button button--white buttons-numbers">8</button>
+        <button class="button button--white buttons-numbers">9</button>
         <button class="button button--dark">x</button>
 
-        <button class="button button--white">4</button>
-        <button class="button button--white">5</button>
-        <button class="button button--white">6</button>
+        <button class="button button--white buttons-numbers">4</button>
+        <button class="button button--white buttons-numbers">5</button>
+        <button class="button button--white buttons-numbers">6</button>
         <button class="button button--dark">-</button>
 
-        <button class="button button--white">1</button>
-        <button class="button button--white">2</button>
-        <button class="button button--white">3</button>
+        <button class="button button--white buttons-numbers">1</button>
+        <button class="button button--white buttons-numbers">2</button>
+        <button class="button button--white buttons-numbers">3</button>
         <button class="button button--dark">+</button>
 
         <button class="button button--white" title="Ir para o Repositório">
           <i data-feather="github" class="button__icons"></i>
         </button>
-        <button class="button button--white">0</button>
+        <button class="button button--white buttons-numbers">0</button>
         <button class="button button--white">,</button>
         <button class="button button--dark">=</button>
       </div>
@@ -70,5 +70,6 @@
   <script>
     feather.replace()
   </script>
+  <script type="module" src="../build/assets/js/main.js"></script>
 </body>
 </html>
