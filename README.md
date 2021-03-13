@@ -1,7 +1,7 @@
 
 
 
-# Convert Bin2Dec (Binary To Decimal)
+# Calculator
 
 ![Preview-Screens](https://github.com/luizGTogni/calculator-javascript/blob/main/screen.png)
 
