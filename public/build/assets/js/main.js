@@ -1,13 +1,11 @@
-import DisplayTotal from './Display/DisplayTotal.js';
-var displayTotal = new DisplayTotal();
-var buttonsNumbers = document.querySelectorAll('.buttons-numbers');
-
-var getValueButtonNumbers = function getValueButtonNumbers() {
-  buttonsNumbers.forEach(function (buttonNumber) {
-    buttonNumber.addEventListener('click', function () {
-      displayTotal.add(buttonNumber.textContent);
-    });
-  });
-};
-
-getValueButtonNumbers();
+import Button from './Button/Button.js';
+import DisplayCalculate from './Display/DisplayCalculate.js';
+var displayCalculate = new DisplayCalculate();
+var button = new Button();
+button.handleButtonNumberClick(displayCalculate);
+button.handleButtonOperationClick(displayCalculate);
+button.handleButtonBackspaceClick(displayCalculate);
+button.handleButtonDecimalClick(displayCalculate);
+button.handleButtonClearAllClick(displayCalculate);
+button.handleButtonResultClick(displayCalculate);
+button.handleButtonReverseClick(displayCalculate);

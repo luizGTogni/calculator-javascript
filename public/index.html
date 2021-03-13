@@ -31,38 +31,41 @@
       </div>
 
       <div class="keyboard">
-        <button class="button button--dark">C</button>
-        <button class="button button--dark">%</button>
-        <button class="button button--dark">
+        <button id="button-clear-all" class="button button--dark">C</button>
+        <button id="button-reverse" class="button button--dark">+/-</button>
+        <button id="button-backspace" class="button button--dark">
           <span class="material-icons button__icons">
             backspace
           </span>
         </button>
-        <button class="button button--dark">
-          <i data-feather="divide" class="button__icons"></i>
-        </button>
+        <button class="button button--dark button__icon--divide buttons-operations">÷</button>
 
         <button class="button button--white buttons-numbers">7</button>
         <button class="button button--white buttons-numbers">8</button>
         <button class="button button--white buttons-numbers">9</button>
-        <button class="button button--dark">x</button>
+        <button class="button button--dark buttons-operations">x</button>
 
         <button class="button button--white buttons-numbers">4</button>
         <button class="button button--white buttons-numbers">5</button>
         <button class="button button--white buttons-numbers">6</button>
-        <button class="button button--dark">-</button>
+        <button class="button button--dark buttons-operations">-</button>
 
         <button class="button button--white buttons-numbers">1</button>
         <button class="button button--white buttons-numbers">2</button>
         <button class="button button--white buttons-numbers">3</button>
-        <button class="button button--dark">+</button>
+        <button class="button button--dark buttons-operations">+</button>
 
-        <button class="button button--white" title="Ir para o Repositório">
+        <a 
+          href="https://github.com/luizGTogni/calculator-javascript" 
+          class="button button--white" 
+          title="Ir para o Repositório"
+          target="_blank"
+        >
           <i data-feather="github" class="button__icons"></i>
-        </button>
+        </a>
         <button class="button button--white buttons-numbers">0</button>
-        <button class="button button--white">,</button>
-        <button class="button button--dark">=</button>
+        <button id="button-decimal" class="button button--white">.</button>
+        <button id="button-result" class="button button--dark">=</button>
       </div>
     </div>
   </div>

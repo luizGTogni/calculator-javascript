@@ -1,58 +1,29 @@
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+import Display from './Display.js';
+import MathEquation from '../utils/MathEquation.js';
 
-var display = document.querySelector('#display');
-var displayTotal = display.children.total;
+var DisplayTotal = /*#__PURE__*/function (_Display) {
+  _inheritsLoose(DisplayTotal, _Display);
 
-var DisplayTotal = /*#__PURE__*/function () {
   function DisplayTotal() {
-    _defineProperty(this, "_value", void 0);
-
-    this.value = 0;
+    return _Display.call(this) || this;
   }
 
   var _proto = DisplayTotal.prototype;
 
-  _proto.setDisplayContent = function setDisplayContent(value) {
-    if (value === void 0) {
-      value = 0;
-    }
-
-    displayTotal.textContent = value;
+  _proto.calc = function calc(str) {
+    this.result = MathEquation.calculator(str);
+    this.renderTotal();
   };
 
-  _proto.getDisplayContent = function getDisplayContent() {
-    return displayTotal.textContent;
+  _proto.renderTotal = function renderTotal() {
+    this.getDisplayTotal().textContent = this.result;
   };
-
-  _proto.add = function add(value) {
-    if (Number(value) > 0 && this.getDisplayContent().length === 1 && this.getDisplayContent() === '0') {
-      this.setDisplayContent(null);
-    }
-
-    this.value = "" + this.getDisplayContent() + value;
-    this.setDisplayContent(this.value);
-  };
-
-  _proto.clearAll = function clearAll() {
-    this.value = 0;
-    this.setDisplayContent(0);
-  };
-
-  _createClass(DisplayTotal, [{
-    key: "value",
-    get: function get() {
-      return this._value;
-    },
-    set: function set(value) {
-      this._value = value;
-    }
-  }]);
 
   return DisplayTotal;
-}();
+}(Display);
 
 export default DisplayTotal;
