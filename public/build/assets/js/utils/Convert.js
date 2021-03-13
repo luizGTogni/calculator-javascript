@@ -16,6 +16,24 @@ var Convert = /*#__PURE__*/function () {
     return str;
   };
 
+  _proto.symbolMathToMathComp = function symbolMathToMathComp(symbols) {
+    for (var idx in symbols) {
+      var symbolChanged = '';
+
+      if (symbols[idx] === '÷') {
+        symbolChanged = '/';
+      } else if (symbols[idx] === 'x') {
+        symbolChanged = '*';
+      } else {
+        symbolChanged = symbols[idx];
+      }
+
+      symbols[idx] = symbolChanged;
+    }
+
+    return symbols;
+  };
+
   return Convert;
 }();
 

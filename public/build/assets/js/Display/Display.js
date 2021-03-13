@@ -4,6 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+import MathEquation from '../utils/MathEquation.js';
 var displayElement = document.querySelector('#display');
 var displayTotalElement = displayElement.children.total;
 var displayCalculateElement = displayElement.children.calculate;
@@ -15,16 +16,49 @@ var Display = /*#__PURE__*/function () {
     _defineProperty(this, "_result", void 0);
 
     this.calculate = '';
-    this.result = '';
+    this.result = '0';
   }
 
   var _proto = Display.prototype;
+
+  _proto.resetState = function resetState() {
+    this.calculate = '';
+    this.result = 0;
+    this.renderCalculate();
+    this.renderTotal();
+  };
+
+  _proto.renderTotal = function renderTotal() {
+    displayTotalElement.textContent = this.result;
+  };
 
   _proto.renderCalculate = function renderCalculate() {
     displayCalculateElement.textContent = this.calculate;
   };
 
-  _proto.renderTotal = function renderTotal() {// displayTotalElement.textContent = this.calculate.split(' ');
+  _proto.calc = function calc() {
+    if (!this.isNumberLimitPerScreen(String(this.result))) {
+      this.result = MathEquation.calculator(this.calculate || 0);
+      this.renderTotal();
+    }
+  };
+
+  _proto.changeTotalPerCalculate = function changeTotalPerCalculate() {
+    this.calculate = String(this.result);
+    this.renderCalculate();
+    this._hasOperationProgress = false;
+  };
+
+  _proto.isNumberLimitPerScreen = function isNumberLimitPerScreen(display, limit) {
+    if (limit === void 0) {
+      limit = 18;
+    }
+
+    if (display.length > limit) {
+      return true;
+    }
+
+    return false;
   };
 
   _createClass(Display, [{

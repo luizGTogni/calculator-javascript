@@ -23,20 +23,31 @@ var DisplayCalculate = /*#__PURE__*/function (_Display) {
 
     _defineProperty(_assertThisInitialized(_this), "_hasOperationProgress", void 0);
 
+    _defineProperty(_assertThisInitialized(_this), "_hasDecimalProgress", void 0);
+
     _this.hasOperationProgress = true;
+    _this.hasDecimalProgress = false;
     return _this;
   }
 
   var _proto = DisplayCalculate.prototype;
 
   _proto.add = function add(value) {
-    if (this.hasOperationProgress) {
-      this.hasOperationProgress = false;
-    }
+    if (!this.isNumberLimitPerScreen(this.calculate)) {
+      if (this.hasOperationProgress) {
+        this.hasOperationProgress = false;
+      }
 
-    this.calculate += value;
-    this.renderCalculate();
-    this.renderTotal();
+      this.calculate += value;
+      this.renderCalculate();
+      this.calc();
+    }
+  };
+
+  _proto.clearAll = function clearAll() {
+    this.resetState();
+    this._hasOperationProgress = true;
+    this._hasDecimalProgress = false;
   };
 
   _proto.remove = function remove() {
@@ -45,6 +56,11 @@ var DisplayCalculate = /*#__PURE__*/function (_Display) {
     var strCalculate = Convert.arrayToString(separateCalculate);
     this.calculate = strCalculate;
     this.renderCalculate();
+    this.blockOperation();
+
+    if (!this.hasDecimalProgress && !this.hasOperationProgress || this.calculate.length === 0) {
+      this.calc();
+    }
   };
 
   _proto.addOperation = function addOperation(operation) {
@@ -52,16 +68,26 @@ var DisplayCalculate = /*#__PURE__*/function (_Display) {
 
     if (!this.hasOperationProgress) {
       this.hasOperationProgress = true;
+      this.hasDecimalProgress = false;
       this.calculate += operation;
       this.renderCalculate();
     }
   };
 
+  _proto.addDecimal = function addDecimal() {
+    this.blockOperation();
+
+    if (!this.hasDecimalProgress && !this.hasOperationProgress) {
+      this.calculate += '.';
+      this.renderCalculate();
+      this.hasDecimalProgress = true;
+    }
+  };
+
   _proto.blockOperation = function blockOperation() {
     var calculateValueFinal = Convert.stringToArray(this.calculate).splice(-1, 1);
-    console.log(calculateValueFinal);
 
-    if (calculateValueFinal[0] === '-' || calculateValueFinal[0] === '+' || calculateValueFinal[0] === 'x' || calculateValueFinal[0] === '÷' || calculateValueFinal.length <= 0) {
+    if (calculateValueFinal[0] === '-' || calculateValueFinal[0] === '+' || calculateValueFinal[0] === 'x' || calculateValueFinal[0] === '÷' || calculateValueFinal[0] === '.' || calculateValueFinal.length <= 0) {
       this.hasOperationProgress = true;
     } else {
       this.hasOperationProgress = false;
@@ -75,6 +101,14 @@ var DisplayCalculate = /*#__PURE__*/function (_Display) {
     },
     set: function set(_boolean) {
       this._hasOperationProgress = _boolean;
+    }
+  }, {
+    key: "hasDecimalProgress",
+    get: function get() {
+      return this._hasDecimalProgress;
+    },
+    set: function set(_boolean2) {
+      this._hasDecimalProgress = _boolean2;
     }
   }]);
 

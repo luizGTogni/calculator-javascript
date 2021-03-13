@@ -3,8 +3,9 @@ var Math = /*#__PURE__*/function () {
 
   var _proto = Math.prototype;
 
-  _proto.sum = function sum(a, b) {
-    return a + b;
+  _proto.calculator = function calculator(equation) {
+    console.log(equation);
+    return eval(equation);
   };
 
   return Math;
