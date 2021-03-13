@@ -5,7 +5,7 @@
 
 ![Preview-Screens](https://github.com/luizGTogni/calculator-javascript/blob/main/screen.png)
 
-Se quiser ver ele online [clique aqui](https://bin2dec-sigma.vercel.app/).
+Se quiser ver ele online [clique aqui](https://x-calculator.vercel.app/).
 
 ## Sobre este projeto
 
