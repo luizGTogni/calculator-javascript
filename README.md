@@ -36,7 +36,7 @@ Conecte-se comigo no [LinkedIn](https://www.linkedin.com/in/luizgustavotogni/).
 **Clonando o Repositorio**
 
 ```
-$ git clone https://github.com/luizGTogni/calculator-javascript
+$ git clone https://github.com/luizGTogni/calculator-javascript.git
 
 $ cd calculator-javascript
 ```
